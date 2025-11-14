@@ -1,0 +1,5 @@
+
+This is a DWH designed for Glovo. We implemented a dimensional model using a Star schema, with a central fact table of IDs and surrounding dimension tables for Customer, Order, Courier, Payment, and Establishment.  Data flows from Raw (source dumps) - Stage (cleaned and standardized) - Mart (aggregated for analytics). In terms of data lineage, the warehouse currently has 1 fact table and 4 dimensions: Order, Establishment, Client, and Courier. These dimensions provide flexibility to calculate and explore a wide variety of metrics in the future, such as order counts, courier performance, establishment statistics, etc.
+We use SCD2 for the Customer dimension. This allows us to track historical changes in customer accounts, such as updates to names, emails, or contact details, while preserving the past state of each customer. SCD2 ensures that historical analyses remain accurate and consistent over time, which is important for understanding customer behavior and trends.
+
+https://www.figma.com/board/A2Vy7S4UOsha0aTypC72Gj/Glovo?node-id=0-1&t=vEFqWxmVmG59Atwg-1
