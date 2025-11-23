@@ -1,0 +1,108 @@
+create table raw_data as
+select * from read_json_auto("C:\Users\user\Downloads\steam_games_unpacked.json", maximum_object_size = 268435456);
+-- select * from read_json_auto("C:\Users\user\Downloads\steam_2025_5k-dataset-reviews_20250901.json\steam_2025_5k-dataset-reviews_20250901.json") limit=2;
+describe raw_data;
+
+
+
+create or replace table dim_steam as
+select
+    appid as steam_appid,
+    name_from_applist as name,
+
+    (app_details::json).data.type as type,
+    (app_details::json).data.is_free as is_free,
+    TRY_CAST((app_details::json).data.release_date.date as date) as release_date,
+    TRY_CAST(regexp_extract((app_details::json).data.release_date.date, '\d{4}') AS INTEGER) as release_year,
+
+    CAST((app_details::json).data.recommendations.total AS INTEGER) as review_count,
+    CAST((app_details::json).data.metacritic.score AS INTEGER) as metacritic_score,
+
+    CAST((app_details::json).data.price_overview.final as integer)/100.0 as final_price,
+    (app_details::json).data.price_overview.currency as currency,
+
+    (app_details::json).data.platforms.windows as platform_windows,
+    (app_details::json).data.platforms.mac as platform_mac,
+    (app_details::json).data.platforms.linux as platform_linux,
+
+    (app_details::json).data.genres as genres_json,
+    (app_details::json).data.categories as categories_json,
+    (app_details::json).data.developers as developers_json
+
+FROM read_parquet('C:\Users\user\Downloads\steam_games_fixed.parquet')
+
+WHERE (app_details::json).success = 'true';
+
+
+create or replace table steam_genres as
+       select
+           steam_appid,
+           g_item->>'description' as genre_name,
+           g_item->>'id' as genre_id
+from dim_steam,
+    unnest(CAST(genres_json AS STRUCT(id VARCHAR, description VARCHAR)[])) as t(g_item);
+
+create or replace table steam_developers as
+       select
+           steam_appid,
+           dev_name as developer_name
+from dim_steam,
+    unnest(CAST(developers_json AS VARCHAR[])) AS t(dev_name);
+
+
+
+create or replace table steam_categories as
+       select
+           steam_appid,
+           unnested_category ->> 'description' as category_name,
+           unnested_category ->> 'id' as category_id
+from dim_steam,
+    unnest(CAST(categories_json AS VARCHAR[])) AS t(unnested_category);
+
+select
+    (select count(*) from dim_steam) as total_games,
+    (select count(*) from steam_genres) as total_genres_names,
+    (select count(*) from steam_developers) as total_developers_links;
+
+
+-- top 20
+select
+    name,
+    review_count,
+    final_price
+from dim_steam
+where review_count is not null
+order by review_count desc
+limit 20;
+
+--game count by years
+
+select
+    release_year,
+    count(*) as game_count
+from dim_steam
+where release_year < 2026
+group by release_year
+order by release_year desc;
+
+
+--avg prices
+select
+    g.genre_name,
+    count(d.steam_appid) as total_games,
+    round(avg(d.final_price), 2) as avg_price
+from steam_genres g
+join dim_steam d on g.steam_appid = d.steam_appid
+group by g.genre_name
+order by avg_price desc;
+
+--most common tags across all games
+
+select
+    category_name,
+    count(steam_appid) as frequency
+from steam_categories
+group by category_name
+order by frequency desc
+limit 10;
+
