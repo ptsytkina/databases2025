@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualization Portfolio</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+
+    <style>
+        /* KSE Brand: Official colors */
+        :root {
+            --pico-primary: rgb(0, 57, 100); /* KSE Dark Midnight Blue */
+            --pico-primary-hover: rgb(0, 77, 130);
+        }
+
+        /* KSE Typography */
+        body { line-height: 1.3; }
+        h1, h2, h3, h4, h5, h6 { line-height: 1.15; }
+
+        /* Visualization containers */
+        article > div { width: 100%; min-height: 400px; }
+        
+        .tableauPlaceholder { margin: 0 auto; }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        
+        <hgroup>
+            <h1>[Polina Tsytkina]</h1>
+            <p>Data Visualization Portfolio</p>
+            <p>Principles of Data Visualization | KSE | Fall 2025</p>
+        </hgroup>
+
+        <article>
+            <header>
+                <h2>📹 Video Presentation</h2>
+            </header>
+            <p>
+                <strong>Watch my portfolio walkthrough (5-7 minutes):</strong><br>
+                <a href="https://youtu.be/58zExW_Mqzw" target="_blank" role="button">
+                    ▶️ View Video Presentation
+                </a>
+            </p>
+        </article>
+
+        <article>
+            <header>
+                <h2>Introduction</h2>
+            </header>
+            <p>
+                Which tracks on Spotify are the most popular and why? Anatomy of a popular Spotify release.
+                I have chosen this topic because it seemed interesting to me after the Spotify 2025 wrapped release. 
+                Which tracks are popular? Why they are? Is it because of the release date, or just because artists are popular? 
+                Are all popular tracks explicit? 
+                My visualizations explore this story and look into all of the aspects creating an analysis of everything.
+            </p>
+        </article>
+
+        <article>
+            <header>
+                <h2>1. Relation between track duration and popularity</h2>
+            </header>
+
+            <h3>Context & Question</h3>
+            <p>This chart explores the question that was risen by Queen band: are all popular 
+                tracks short? Do people only listen to something not long a lot?</p>
+
+            <h3>Design Decisions</h3>
+            <p>I have chosen scatter plot with filtrations by genre. 
+                It was my choice because it is the best to show the connection and tendencies between two variables. 
+                They are filtered by general genre grouppes, and colored by sub-genres. It was made to make a chart more 
+                readable and to understand a big massive of data. Without filtration, tooltips and colors, it was extremely hard
+                to read.</p>
+
+            <div class='tableauPlaceholder' id='viz1766071001852' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;CM&#47;CMFMTF8BM&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;CMFMTF8BM' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;CM&#47;CMFMTF8BM&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1766071001852');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+            <h3>Key Insights</h3>
+            <p>In this visualization we see no tendencies, which mean that we do not have any connection between duration and popularity. 
+                It does not matter how long the track is for people to love it and listen multiple times.</p>
+
+            <footer>
+                <strong>Data Source:</strong> [https://www.kaggle.com/datasets/wardabilal/spotify-global-music-dataset-20092025?resource=download]
+            </footer>
+        </article>
+
+        <article>
+            <header>
+                <h2>2. Explicit vs. Clean. Popularity Gap by Genre</h2>
+            </header>
+
+            <h3>Context & Question</h3>
+            <p>This chart answers the question if you should be explicit to be popular across genres. 
+                Is it really a thing, that the only way to become popular in some fields you need to be kind of immoral?</p>
+
+            <h3>Design Decisions</h3>
+            <p>I have chosen dumbbell chart with rows representing different genres.. 
+                It is showing the difference between explicit tracks popularity and not explicit. It is not a really popular chart, 
+                but it is beautiful in this case in my opinion.</p>
+
+            <div class='tableauPlaceholder' id='viz1766071020654' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;5J&#47;5JM3HDY54&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;5JM3HDY54' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;5J&#47;5JM3HDY54&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1766071020654');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+            <h3>Key Insights</h3>
+            <p>We see that it differs across genres. Mostly, not explicit songs are popular. 
+                But in rap category - there is a really big contrast in popularity. 
+                So, you can be popular and stay completely moral, but you are less likely to be moral rapper.</p>
+
+            <footer>
+                <strong>Data Source:</strong> [https://www.kaggle.com/datasets/wardabilal/spotify-global-music-dataset-20092025?resource=download]
+            </footer>
+        </article>
+
+        <article>
+            <header>
+                <h2>3. [Comparison of popularity of genres by type: albums or singles]</h2>
+            </header>
+
+            <h3>Context & Question</h3>
+            <p>This visualization deeps dive in the question if singles or albums are more popular. 
+                If i choose to post an album, will it be more popular? What is the tendency across genres?</p>
+
+            <h3>Design Decisions</h3>
+            <p>I have used a butterfly chart with filtration of amount of the bars showing 
+                and a genre filter. When you change the genre - album`s bar color changes. 
+                It was used to see the differences when you switch between filters,
+                and also to eliminate the situation with hundreds of bars.</p>
+
+            <div class='tableauPlaceholder' id='viz1766071033212' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;X4&#47;X49NS4SSG&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;X49NS4SSG' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;X4&#47;X49NS4SSG&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1766071033212');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+            <h3>Key Insights</h3>
+            <p>We see that albums are more popular than singles. I think the reason of 
+                this insight is that mostly artists post albums, so they "blow up". Still, 
+                if you want more popular tracks - it may be a great idea to post an album.</p>
+
+            <footer>
+                <strong>Data Source:</strong> [https://www.kaggle.com/datasets/wardabilal/spotify-global-music-dataset-20092025?resource=download]
+            </footer>
+        </article>
+
+        <article>
+            <header>
+                <h2>4. Which years` published tracks are the most popular?</h2>
+            </header>
+
+            <h3>Context & Question</h3>
+            <p>There is an opinion that new generation and people overall now listen 
+                only to "tiktok music", and do not like something old, classic, with a soul in it.
+                In this dashboard I have looked into it and am showing top-5 songs by popularity and their year of being published,
+                and also the overall tendency using line chart.</p>
+
+            <h3>Design Decisions</h3>
+            <p>I have used the combination of a bar chart and a line graph to see the tendency overall and then more manually.
+                Colors are used to show categorial data and the level of popularity in a line chart. Legend is hidden to avoid 
+                double-coding the same information and to show the visuals on dashboard more clean.
+                I have not filtered the line chart by years to clearly show the tendency in more than 30 years,
+                even though the old data is not completely clean. Some of the old songs have different publishment years than original, remastered, etc.</p>
+
+            <div class='tableauPlaceholder' id='viz1766071045966' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;8R&#47;8RYW8DSZM&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;8RYW8DSZM' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;8R&#47;8RYW8DSZM&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1766071045966');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.minWidth='1000px';vizElement.style.maxWidth='100%';vizElement.style.minHeight='850px';vizElement.style.maxHeight=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.minWidth='1000px';vizElement.style.maxWidth='100%';vizElement.style.minHeight='850px';vizElement.style.maxHeight=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.minHeight='1000px';vizElement.style.maxHeight=(divElement.offsetWidth*1.77)+'px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+            <h3>Key Insights</h3>
+            <p>Here we see that most popular songs are old,  which means that 
+                everyone loves great classics, and are still listening to it.</p>
+
+            <footer>
+                <strong>Data Source:</strong> [https://www.kaggle.com/datasets/wardabilal/spotify-global-music-dataset-20092025?resource=download]
+            </footer>
+        </article>
+
+        <article>
+            <header>
+                <h2>5. Do artists` popularity affect tracks` popularity?</h2>
+            </header>
+
+            <h3>Context & Question</h3>
+            <p>After I have searched about another factors, my last question was 
+                if people listen to tracks just because they want, or the popularity of 
+                artists really correlate and has a meaning to people.</p>
+
+            <h3>Design Decisions</h3>
+            <p>I have used a dashboard which includes three quite simple visualizations. Two bar charts and one 
+                scatter plot with a tendency line. I have used it to see if top-7 artists and top-7 songs differed, 
+                and than computed a linear regression to see if overall popular artists publish popular songs. Legends are hidden 
+                to avoid double coding. </p>
+
+            <div class='tableauPlaceholder' id='viz1766071057502' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;CF&#47;CFT86CTQQ&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;CFT86CTQQ' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;CF&#47;CFT86CTQQ&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1766071057502');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.minWidth='1000px';vizElement.style.maxWidth='100%';vizElement.style.minHeight='850px';vizElement.style.maxHeight=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.minWidth='1000px';vizElement.style.maxWidth='100%';vizElement.style.minHeight='850px';vizElement.style.maxHeight=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.minHeight='1000px';vizElement.style.maxHeight=(divElement.offsetWidth*1.77)+'px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+            <h3>Key Insights</h3>
+            <p>For whatever reason, people really like songs from a series called K-POP Demon Hunters...
+                Without any logic... But still, as we see on a scatter plot - yes, popular artists publish popular songs,
+                except for some outliers shown.</p>
+
+            <footer>
+                <strong>Data Source:</strong> [https://www.kaggle.com/datasets/wardabilal/spotify-global-music-dataset-20092025?resource=download]
+            </footer>
+        </article>
+
+        <article>
+            <header>
+                <h2>Reflection</h2>
+            </header>
+            <p>Honestly, it was really fun. I have picked a dataset that i liked to work with, 
+                and everything went well. I have mastered my calculation field creation skills, and also 
+                had a great practice with dashboards and working with data to get what i want. Unfortunately, 
+                i did not have enough skills to do something complex as i wanted (for example, radiant bar chart for 
+                tracks monthly publishing), but i am sure i will improve in the future. This portfolio proved to me that i like visualization. </p>
+        </article>
+
+        <article>
+            <header>
+                <h2>AI Usage Documentation</h2>
+            </header>
+            <p>I used AI (Gemini) to help with the HTML structure and putting Tableau visualizations into the portfolio template. (i do not know anything about HTML)
+                https://gemini.google.com/share/8a05bce8a6af
+            </p>
+        </article>
+
+        <footer style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #ddd;">
+            <p>Created by [Polina Tsytkina] | KSE Fall 2025</p>
+        </footer>
+
+    </main>
+</body>
+</html>
